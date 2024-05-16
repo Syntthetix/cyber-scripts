@@ -3,14 +3,14 @@ import socket
 from datetime import datetime
 
 print("-" * 43)
-print(" " * 14 + "RAT PORT SCANNER")
+print(" " * 18 + "PORT SCANNER")
 print("-" * 43)
 
 if len(sys.argv) == 1:
     print("Usage:")
-    print("ratscan.py [target] [start_port] [end_port]")
-    print("ratscan.py [target] [start_port] (Scans only one port)")
-    print("ratscan.py [target] (Scans all 65535 ports)")
+    print("portscan.py [target] [start_port] [end_port]")
+    print("portscan.py [target] [start_port] (Scans only one port)")
+    print("portscan.py [target] (Scans all 65535 ports)")
     sys.exit()
 
 target = socket.gethostbyname(sys.argv[1])
