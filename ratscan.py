@@ -31,9 +31,10 @@ if (len(sys.argv) == 4):
         print("Error: end_port cannot be greater than 65535!")
         sys.exit()
 
+start_time = datetime.now()
 print("Scan target:\t" + target)
 print("Target ports:\t{} -> {}".format(start_port, end_port))
-print("Started at:\t" + str(datetime.now()))
+print("Started at:\t" + str(start_time))
 print("-" * 43)
 
 # Begin scanning
@@ -47,7 +48,10 @@ try:
             print("Found open port: " + str(port))
         s.close()
     print("-" * 43)
-    print("Scan completed!")
+
+    end_time = datetime.now()
+    print("Completed at:\t" + str(end_time))
+    print("Elapsed time:\t" + str(end_time - start_time))
 
 except KeyboardInterrupt:
     print("\nExiting due to keyboard interrupt!")
