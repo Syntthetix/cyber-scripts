@@ -2,9 +2,9 @@ import sys
 import socket
 from datetime import datetime
 
-print("-" * 20)
-print("  RAT PORT SCANNER")
-print("-" * 20)
+print("-" * 43)
+print(" " * 14 + "RAT PORT SCANNER")
+print("-" * 43)
 
 if len(sys.argv) == 3:
     print("Error: Missing arguments!")
@@ -27,3 +27,6 @@ if (len(sys.argv) == 4):
 print("Scan target:\t" + target)
 print("Target ports:\t{} -> {}".format(start_port, end_port))
 print("Started at:\t" + str(datetime.now()))
+print("-" * 43)
+
+# Begin scanning
