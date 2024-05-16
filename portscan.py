@@ -8,7 +8,7 @@ print("-" * 43)
 
 if len(sys.argv) == 1:
     print("Usage:")
-    print("portscan.py [target] [start_port] [end_port]")
+    print("portscan.py [target] <start_port> <end_port>")
     print("portscan.py [target] [start_port] (Scans only one port)")
     print("portscan.py [target] (Scans all 65535 ports)")
     sys.exit()
