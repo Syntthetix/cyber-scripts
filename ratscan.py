@@ -44,7 +44,7 @@ try:
 
         result = s.connect_ex((target, port))
         if result == 0:
-            print("Found open port:\t" + str(port))
+            print("Found open port: " + str(port))
         s.close()
     print("-" * 43)
     print("Scan completed!")
