@@ -58,4 +58,3 @@ except socket.gaierror:
 except socket.error:
     print("\nServer not responding!")
     sys.exit()
-# test
