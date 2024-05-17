@@ -39,6 +39,8 @@ print("-" * 43)
 
 # Begin scanning
 try:
+    open_port_count = 0
+
     for port in range(start_port, end_port + 1):
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         socket.setdefaulttimeout(1)
@@ -46,10 +48,15 @@ try:
         result = s.connect_ex((target, port))
         if result == 0:
             print("Found open port: " + str(port))
+            open_port_count += 1
         s.close()
+    
+    if open_port_count == 0:
+        print("No open ports found!")
     print("-" * 43)
 
     end_time = datetime.now()
+    print("Open ports:\t" + str(open_port_count))
     print("Completed at:\t" + str(end_time))
     print("Elapsed time:\t" + str(end_time - start_time))
 
