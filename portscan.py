@@ -13,6 +13,22 @@ if len(sys.argv) == 1:
     print("portscan.py [target] (Scans all 65535 ports)")
     sys.exit()
 
+print("[1] No randomization")
+print("[2] Randomize port order")
+print("[3] Randomize time between scans")
+print("[4] Randomize both")
+choice = input("Choice (Default 1): ")
+
+if choice == "" or choice == "1":
+    print("None")
+elif choice == 2:
+    print("2")
+elif choice == 3:
+    print("3")
+elif choice == 4:
+    print("4")
+print("-" * 43)
+
 target = socket.gethostbyname(sys.argv[1])
 start_port = 1
 end_port = 65535
