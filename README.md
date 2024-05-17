@@ -7,3 +7,4 @@ A collection of personal cybersecurity scripts, mostly for learning some Python 
   - Use basic sockets to check for open ports
   - Can scan all ports, one port, or a defined range of ports
   - Target can be in the form of a hostname or IPv4 address
+  - Adding port order and time interval randomization
