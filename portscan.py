@@ -2,6 +2,7 @@ import sys
 import socket
 from datetime import datetime
 import random
+import time
 
 random_order_notice = "*** Random port order enabled ***"
 random_interval_notice = "*** Random scan interval enabled ***"
@@ -35,6 +36,7 @@ elif choice == "4":
     random_order = True
     random_interval = True
 print("-" * 43)
+print(f"{random_order} {random_interval}")
 
 target = socket.gethostbyname(sys.argv[1])
 start_port = 1
@@ -64,8 +66,6 @@ for port in range(start_port, end_port + 1):
 if random_order:
     random.shuffle(ports)
 
-# print(ports)
-
 start_time = datetime.now()
 print("Scan target:\t" + target)
 print("Target ports:\t{} -> {}".format(start_port, end_port))
@@ -81,7 +81,7 @@ print("-" * 43)
 try:
     open_port_count = 0
 
-    for port in range(start_port, end_port + 1):
+    for port in ports:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         socket.setdefaulttimeout(1)
 
@@ -90,6 +90,11 @@ try:
             print("Found open port: " + str(port))
             open_port_count += 1
         s.close()
+
+        # Wait between 5 and 15 seconds before the next scan
+        if random_interval:
+            wait_time = random.randint(5, 15)
+            time.sleep(wait_time)
     
     if open_port_count == 0:
         print("No open ports found!")
