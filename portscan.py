@@ -20,23 +20,21 @@ if len(sys.argv) == 1:
     print("portscan.py [target] (Scans all 65535 ports)")
     sys.exit()
 
-print("[1] No randomization")
-print("[2] Randomize port order")
-print("[3] Randomize time between scans (1-10 sec. intervals)")
-print("[4] Randomize both")
-choice = input("Choice (Default 1): ")
+if len(sys.argv) > 3:
+    print("[1] No randomization")
+    print("[2] Randomize port order")
+    print("[3] Randomize time between scans (1-10 sec. intervals)")
+    print("[4] Randomize both")
+    choice = input("Choice (Default 1): ")
 
-if choice == "" or choice == "1":
-    print("None")
-elif choice == "2":
-    random_order = True
-elif choice == "3":
-    random_interval = True
-elif choice == "4":
-    random_order = True
-    random_interval = True
-print("-" * 43)
-print(f"{random_order} {random_interval}")
+    if choice == "2":
+        random_order = True
+    elif choice == "3":
+        random_interval = True
+    elif choice == "4":
+        random_order = True
+        random_interval = True
+    print("-" * 43)
 
 target = socket.gethostbyname(sys.argv[1])
 start_port = 1
