@@ -37,7 +37,12 @@ if len(sys.argv) > 3:
         random_interval = True
     print("-" * 43)
 
-target = socket.gethostbyname(sys.argv[1])
+try:
+    target = socket.gethostbyname(sys.argv[1])
+except socket.gaierror:
+    print("\nHostname could not be resolved!")
+    sys.exit()
+
 start_port = 1
 end_port = 65535
 
