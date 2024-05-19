@@ -1,6 +1,12 @@
 import sys
 import socket
 from datetime import datetime
+import random
+
+random_order_notice = "*** Random port order enabled ***"
+random_interval_notice = "*** Random scan interval enabled ***"
+random_order = False
+random_interval = False
 
 print("-" * 43)
 print(" " * 18 + "PORT SCANNER")
@@ -15,18 +21,19 @@ if len(sys.argv) == 1:
 
 print("[1] No randomization")
 print("[2] Randomize port order")
-print("[3] Randomize time between scans")
+print("[3] Randomize time between scans (1-10 sec. intervals)")
 print("[4] Randomize both")
 choice = input("Choice (Default 1): ")
 
 if choice == "" or choice == "1":
     print("None")
-elif choice == 2:
-    print("2")
-elif choice == 3:
-    print("3")
-elif choice == 4:
-    print("4")
+elif choice == "2":
+    random_order = True
+elif choice == "3":
+    random_interval = True
+elif choice == "4":
+    random_order = True
+    random_interval = True
 print("-" * 43)
 
 target = socket.gethostbyname(sys.argv[1])
@@ -47,10 +54,27 @@ if (len(sys.argv) == 4):
         print("Error: end_port cannot be greater than 65535!")
         sys.exit()
 
+
+# Generate port array
+ports = []
+for port in range(start_port, end_port + 1):
+    ports.append(port)
+
+# Randomize port order
+if random_order:
+    random.shuffle(ports)
+
+# print(ports)
+
 start_time = datetime.now()
 print("Scan target:\t" + target)
 print("Target ports:\t{} -> {}".format(start_port, end_port))
 print("Started at:\t" + str(start_time))
+
+if random_order or random_interval: print()
+if random_order: print(random_order_notice)
+if random_interval: print(random_interval_notice)
+
 print("-" * 43)
 
 # Begin scanning
