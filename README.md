@@ -9,3 +9,5 @@ A collection of personal cybersecurity scripts, mostly for learning some Python 
   - Target can be in the form of a hostname or IPv4 address
   - Randomize port scan order
   - Randomize time interval between scans (5-15 seconds)
+
+![image](https://github.com/garrett16r/cyber-scripts/assets/13398077/d0752994-9118-4624-82ff-04f10d409a6a)
