@@ -20,6 +20,7 @@ if len(sys.argv) == 1:
     print("portscan.py [target] (Scans all 65535 ports)")
     sys.exit()
 
+# Only show randomization selection if more than 1 port is being scanned
 if len(sys.argv) > 3:
     print("[1] No randomization")
     print("[2] Randomize port order")
