@@ -24,7 +24,7 @@ if len(sys.argv) == 1:
 if len(sys.argv) > 3:
     print("[1] No randomization")
     print("[2] Randomize port order")
-    print("[3] Randomize time between scans (1-10 sec. intervals)")
+    print("[3] Randomize time between scans (5-15 sec. intervals)")
     print("[4] Randomize both")
     choice = input("Choice (Default 1): ")
 
