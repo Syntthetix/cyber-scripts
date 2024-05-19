@@ -87,7 +87,7 @@ try:
 
     for port in ports:
         s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        socket.setdefaulttimeout(1)
+        socket.setdefaulttimeout(0.5)
 
         result = s.connect_ex((target, port))
         if result == 0:
